@@ -4,7 +4,7 @@
  * then set it's value to null;
  *
  */
-
+var unicorn = null;
 
 /* Step 2
  *
@@ -12,7 +12,7 @@
  * then assign it to be the value of "Atari"
  *
  */
-
+var videogame_system = "Atari";
 
 /* Step 3
  *
@@ -20,7 +20,7 @@
  * and assign the value of sahara_animal to "The Addax"
  *
  */
-
+var sahara_animal = "The Addax";
 
 /* Step 4
  *
@@ -29,7 +29,7 @@
  * each planet in our solar system, in order of distance from the sun
  * Capitalize the names.
  */
-
+var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
 
 /* Step 5
  *
@@ -38,7 +38,7 @@
  * each galilean moon of Jupiter
  *
  */
-
+var galilean_moons = ["Io", "Europa", "Ganymede", "Callisto"];
 
 /* Step 6 φ
  *
@@ -46,7 +46,7 @@
  * and assign the value of golden_ratio to 1.61803398874
  *
  */
-
+var golden_ratio = 1.61803398874;
 
 /* Step 7
  *
@@ -54,7 +54,7 @@
  * and assign the value of earths_water_composition to 0.71
  *
  */
-
+var earths_water_composition = 0.71;
 
 /* Step 8
  *
@@ -62,7 +62,7 @@
  * and assign the value of club_name to "Fight Club"
  *
  */
-
+var club_name = "Fight Club";
 
 /* Step 9
  *
@@ -73,7 +73,11 @@
  *   male    => "male"
  *   unknown => undefined
  */
-
+var gender = {
+  female: "female",
+  male: "male",
+  unknown: undefined
+};
 
 /* Step 10
  *
@@ -87,7 +91,12 @@
  *   gender  => gender.female
  *
  */
-
+var princess_leia = {
+  name: "Leia Organa",
+  money: 890,
+  age: 20,
+  gender: gender.female
+};
 
 /* Step 11
  *
@@ -100,7 +109,12 @@
  *   jsonformatter.curiousconcept.com => "104.28.5.70"
  *
  */
-
+var domains = {
+  "ycombinator.com": "198.41.190.47",
+  "laughingsquid.com": "162.159.247.97",
+  "slumlordhosting.com": "198.61.179.126",
+  "jsonformatter.curiousconcept.com": "104.28.5.70"
+};
 
 /* Step 12
  *
