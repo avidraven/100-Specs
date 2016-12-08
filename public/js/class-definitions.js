@@ -261,7 +261,14 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *                  "Golden"
  *
  */
-
+var beers = {
+  IPA: "Ale",
+  Lager: "Strong",
+  Heffeweisen: "German",
+  Stout: ["Thick", "Dark"],
+  Porter: "Bitter",
+  Ale: ["Light", "Golden"]
+};
 
 /* Step 20
  *
@@ -271,7 +278,9 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String}
  *
  */
-
+function sahara_river(){
+  return "Nile River";
+}
 
 /* Step 21
  *
@@ -283,7 +292,9 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {Number}
  *
  */
-
+function addNumbers(num1, num2){
+  return num1 + num2;
+}
 
 /* Step 22
  *
@@ -296,7 +307,14 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {Bool}
  *
  */
-
+function installLinux(type){
+  for (var i = 0; i < linuxFlavors.length; i++) {
+    if (linuxFlavors[i] === type){
+      return true;
+    }
+  }
+  return false;
+}
 
 /* Step 23
  *
@@ -315,7 +333,28 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {Bool when False, String when True}
  *
  */
-
+function drink(beerName){
+  if (beers.hasOwnProperty(beerName)){
+    var beerDescription = beers[beerName];  //dot notation doesn't work
+    var beerString = "";
+    if (typeof beerDescription === "string"){
+      beerString = "This " + beerName + " is " + beerDescription + ".";
+    }else{
+      beerString = "This " + beerName + " is ";
+      for (var i = 0; i < beerDescription.length; i++) {
+        if (i === 0){
+          beerString = beerString + beerDescription[i];
+        }else{
+          beerString = beerString + " and " + beerDescription[i];
+        }
+      }
+      beerString = beerString + ".";
+    }
+    return beerString;
+  }else{
+    return false;
+  }
+}
 
 /* Step 24
  *
@@ -328,7 +367,13 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String if true else return false}
  *
  */
-
+function browseURL(browser){
+  if (browsers.hasOwnProperty(browser)){
+    return browsers[browser];
+  }else{
+    return false;
+  }
+}
 
 /* Step 25
  *
@@ -339,6 +384,15 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String}
  *
  */
+function listLivingOrgClass(){
+  var htmlList = document.createElement("ul");
+  for (var i = 0; i < livingOrganismClassification.length; i++) {
+    var listEntry = document.createElement("li");
+    listEntry.innerHTML = livingOrganismClassification[i];
+    htmlList.appendChild(listEntry);
+  }
+  return htmlList;
+}
 
 
 /* Step 26
@@ -360,7 +414,20 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String}
  *
  */
-
+function favoritePlanet(currentPlanet){
+  for (let i = 0; i < planets.length; i++) {
+    if (planets[i] === currentPlanet){
+      var currentPlanetIndex = currentPlanet.indexOf();
+      var randomPlanetIndex = Math.round(Math.random() * (planets.length - 1));
+      while (currentPlanetIndex === randomPlanetIndex){
+        randomPlanetIndex = Math.round(Math.random() * planets.length - 1);
+      }
+      var randomPlanet = planets[randomPlanetIndex];
+      return "I'm from " + currentPlanet + ", but I wish I could go to " + randomPlanet;
+    }
+  }
+  return currentPlanet + " is not a planet!";
+}
 
 /* Step 27
  *
@@ -384,7 +451,22 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *   earnMoney
  *
  */
+class Person{
+  constructor(name, money, age, gender){
+    this.name = name;
+    this.money = money;
+    this.age = age;
+    this.gender = gender;
+  }
 
+  spendMoney(amount){
+    this.money = this.money - amount;
+  }
+
+  earnMoney(amount){
+    this.money = this.money + amount;
+  }
+}
 
 /* Step 28
  *
@@ -397,7 +479,13 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String}
  *
  */
-
+function purchaseLaptop(laptop){
+  if (laptopCosts.hasOwnProperty(laptop)){
+    return laptopCosts[laptop].toString();
+  }else{
+    return -1;
+  }
+}
 
 /* Step 29
  *
@@ -410,7 +498,13 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {Bool}
  *
  */
-
+function canTalkAbout(club){
+  if (club === club_name){
+    return false;
+  }else{
+    return true;
+  }
+}
 
 /* Step 30
  *
@@ -432,8 +526,13 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *   write
  *
  */
+function Pen(color){
+  this.color = color;
+}
 
-
+Pen.prototype.write = function(message){
+  return this.color + ": " + message;
+};
 /* Step 31
  *
  * Define an ES5 class named "Garden" with a property for
