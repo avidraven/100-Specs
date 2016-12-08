@@ -559,7 +559,22 @@ Pen.prototype.write = function(message){
  *   grow
  *
  */
+function Garden(plantsTotal){
+  this.plantsTotal = plantsTotal;
+  this.isWatered = false;
+}
 
+Garden.prototype.water = function(){
+  this.isWatered = true;
+};
+
+Garden.prototype.grow = function(){
+  if (this.isWatered === true){
+    this.plantsTotal = this.plantsTotal + 1;
+  }else{
+    return false;
+  }
+};
 
 /* Step 32
  *
@@ -577,8 +592,17 @@ Pen.prototype.write = function(message){
  *   removePlanet
  *
  */
+function SolarSystem(){
+  this.planets = [];
+}
 
+SolarSystem.prototype.addPlanet = function(planet){
+  this.planets.push(planet);
+};
 
+SolarSystem.prototype.removePlanet = function(){
+  this.planets.pop();
+};
 /* Step 33
  *
  * Define an ES5 class named "PrincessLeia" that is a subclass of "Person"
@@ -612,6 +636,31 @@ Pen.prototype.write = function(message){
  *
  */
 
+function PrincessLeia(name, money, age, gender){
+  Person.call(this, name, money, age, gender);
+  this.isInTrouble = null;
+}
+
+PrincessLeia.prototype.shootsGun = function(){
+  this.isInTrouble = false;
+  return "Leia shoots her gun wildly";
+};
+
+PrincessLeia.prototype.getsInTrouble = function(){
+  this.isInTrouble = true;
+  return "Help me Obi-wan Kenobi, you're my only hope";
+};
+
+PrincessLeia.prototype.marries = function(guy){
+  if (guy === "Han Solo"){
+    return true;
+  }else{
+    if (guy === "Luke Skywalker"){
+      return "Gross!";
+    }
+    return false;
+  }
+};
 
 /* Step 34
  *
