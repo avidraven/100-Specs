@@ -451,22 +451,40 @@ function favoritePlanet(currentPlanet){
  *   earnMoney
  *
  */
-class Person{
-  constructor(name, money, age, gender){
-    this.name = name;
-    this.money = money;
-    this.age = age;
-    this.gender = gender;
-  }
-
-  spendMoney(amount){
-    this.money = this.money - amount;
-  }
-
-  earnMoney(amount){
-    this.money = this.money + amount;
-  }
+function Person(name, money, age, gender){
+  this.name = name;
+  this.money = money;
+  this.age = age;
+  this.gender = gender;
 }
+
+Person.prototype.spendMoney = function(spendAmount){
+  if (spendAmount <= this.money){
+    this.money -= spendAmount;
+  }
+};
+
+Person.prototype.earnMoney = function(earnAmount){
+  this.money += earnAmount;
+};
+
+
+// class Person{
+//   constructor(name, money, age, gender){
+//     this.name = name;
+//     this.money = money;
+//     this.age = age;
+//     this.gender = gender;
+//   }
+
+//   spendMoney(amount){
+//     this.money = this.money - amount;
+//   }
+
+//   earnMoney(amount){
+//     this.money = this.money + amount;
+//   }
+// }
 
 /* Step 28
  *
@@ -635,6 +653,9 @@ SolarSystem.prototype.removePlanet = function(){
  *   marries
  *
  */
+PrincessLeia.prototype = Object.create(Person.prototype, {
+  constructor: PrincessLeia
+});
 
 function PrincessLeia(name, money, age, gender){
   Person.call(this, name, money, age, gender);
@@ -679,7 +700,18 @@ PrincessLeia.prototype.marries = function(guy){
  *   staplePapers
  *
  */
+ function Stapler(color, maxPapers){
+  this.color = color;
+  this.maxPapers = maxPapers;
+ }
 
+Stapler.prototype.staplePapers = function(num){
+  if (num <= this.maxPapers){
+    return true;
+  }else{
+    return false;
+  }
+};
 
 /* Step 35
  *
@@ -719,7 +751,53 @@ PrincessLeia.prototype.marries = function(guy){
  *   addDiscovery
  *
  */
+function Scientist(name, money, age, gender){
+  Person.call(this, name, money, age, gender);
+  this.disciplines = [];
+  this.discoveries = [];
+}
 
+Scientist.prototype = Object.create(Person.prototype);
+
+Scientist.prototype.addDiscipline = function(disciplineToAdd){
+  this.disciplines.push(disciplineToAdd);
+  return disciplineToAdd;
+};
+
+Scientist.prototype.checkDiscipline = function(disciplineToCheck){
+  if (this.disciplines.includes(disciplineToCheck)){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Scientist.prototype.addDiscovery = function(discoveryToAdd){
+  this.discoveries.push(discoveryToAdd);
+  var discString = "I discovered ";
+  for (var i = 0; i < this.discoveries.length; i++) {
+    if (i === 0){
+      // discString = discString + this.discoveries[i];
+      // console.log(discString);
+      if (this.discoveries.length === 1){
+        discString = discString + this.discoveries[i] + ".";
+        // console.log(discString);
+      }else if (this.discoveries.length === 2){
+        discString = discString + this.discoveries[i] + " and ";
+        // console.log(discString);
+      }else{
+        discString = discString + this.discoveries[i] + ", ";
+      }
+    }else{
+      if (i < this.discoveries.length){
+        discString = discString + this.discoveries[i] + ", ";
+      }else{
+        discString = discString + "and " + this.discoveries[i] + ".";
+      }
+    }
+  }
+  return discString;
+};
 
 /* Step 36
  *
@@ -741,7 +819,16 @@ PrincessLeia.prototype.marries = function(guy){
  *   rob
  *
  */
+// function BankAccount(balance, owner){
+//   this.balance = balance;
+//   this.owner = owner;
+// }
 
+// BankAccount.prototype.withdraw = function(withdrawAmount){
+//   if (this.balance >= withdrawAmount){
+//     this.balance -= withdrawAmount;
+//   }
+// };
 
 /* Step 37
  *
@@ -914,7 +1001,12 @@ PrincessLeia.prototype.marries = function(guy){
  * @param {string} species The animal species
  * @param {string} gender  male or female
  */
-
+class Animal{
+  constructor(species, gender){
+    this.species = species;
+    this.gender = gender;
+  }
+}
 
 /**
  * Step 51
@@ -923,7 +1015,12 @@ PrincessLeia.prototype.marries = function(guy){
  * @param {string} make The vehicle's make
  * @param {string} model The vehicle's model
  */
-
+class Vehicle{
+  constructor(make, model){
+    this.make = make;
+    this.model = model;
+  }
+}
 
 /**
  * Step 52
@@ -934,7 +1031,15 @@ PrincessLeia.prototype.marries = function(guy){
  * value of the sides property to null.
  *
  */
-
+class Shape{
+  constructor(sides){
+    if (sides >= 3){
+      this.sides = sides;
+    }else{
+      this.sides = null;
+    }
+  }
+}
 
 /**
  * Step 53
@@ -943,7 +1048,12 @@ PrincessLeia.prototype.marries = function(guy){
  * @param {anything} contents The contents of the box
  * @param {boolean} isOpen     Whether the box is opened or closed
  */
-
+class Box{
+  constructor(contents, isOpen){
+    this.contents = contents;
+    this.isOpen = isOpen;
+  }
+}
 
 /**
  * Step 54
@@ -951,7 +1061,11 @@ PrincessLeia.prototype.marries = function(guy){
  * Door class
  * @param {boolean} isOpen Whether the door is opened or closed
  */
-
+class Door{
+  constructor(isOpen){
+    this.isOpen = isOpen;
+  }
+}
 
 /**
  * Step 55
@@ -960,7 +1074,12 @@ PrincessLeia.prototype.marries = function(guy){
  * @param {number} size  The shoe size
  * @param {string} color The shoe color
  */
-
+class Shoe{
+  constructor(size, color){
+    this.size = size;
+    this.color = color;
+  }
+}
 
 /**
  * Step 56
@@ -968,7 +1087,11 @@ PrincessLeia.prototype.marries = function(guy){
  * House class
  * @param {number} stories How many stories tall the house is
  */
-
+class House{
+  constructor(stories){
+    this.stories = stories;
+  }
+}
 
 /**
  * Step 57
@@ -976,7 +1099,11 @@ PrincessLeia.prototype.marries = function(guy){
  * Lightbulb class
  * @param {boolean} isOn Whether the light is on or off
  */
-
+class Lightbulb{
+  constructor(isOn){
+    this.isOn = isOn;
+  }
+}
 
 /**
  * Step 58
@@ -984,7 +1111,11 @@ PrincessLeia.prototype.marries = function(guy){
  * Cookie class
  * @param {string} flavor The cookie's flavor
  */
-
+class Cookie{
+  constructor(flavor){
+    this.flavor = flavor;
+  }
+}
 
 /**
  * Step 59
@@ -992,7 +1123,11 @@ PrincessLeia.prototype.marries = function(guy){
  * Meal class
  * @param {Array} foods All the foods in the meal
  */
-
+class Meal{
+  constructor(foods){
+    this.foods = foods;
+  }
+}
 
 /**
  * Create a new instance of the Classes you defined above, below!
@@ -1001,16 +1136,27 @@ PrincessLeia.prototype.marries = function(guy){
 
 
 // Create 2 different species of animals
-var george;
-var nemo;
+var george = new Animal();
+george.species = "Monkey";
+george.gender = "male";
+var nemo = new Animal();
+nemo.species = "Fish";
+nemo.gender = "male";
+
 
 // Create 2 different vehicles
-var civic;
-var forte;
+var civic = new Vehicle();
+civic.make = "Honda";
+civic.model = "Civic";
+var forte = new Vehicle();
+forte.make = "KIA";
+forte.model = "Forte";
 
 // Create 2 shapes with different numbers of sides
-var square;
-var hexagon;
+var square = new Shape();
+square.sides = 4;
+var hexagon = new Shape();
+hexagon.sides = 6;
 
 // Create 2 boxes
 var catBox;
