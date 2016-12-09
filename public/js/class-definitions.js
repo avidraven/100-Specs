@@ -1159,32 +1159,51 @@ var hexagon = new Shape();
 hexagon.sides = 6;
 
 // Create 2 boxes
-var catBox;
-var christmasPresent;
+var catBox = new Box();
+catBox.contents = new Animal();
+catBox.contents.species = "Cat";
+catBox.isOpen = true;
+var christmasPresent = new Box();
+christmasPresent.contents = "Surprise";
+christmasPresent.isOpen = false;
 
 // Create 2 doors
-var automaticDoor;
-var bankVault;
+var automaticDoor = new Door();
+automaticDoor.isOpen = true;
+var bankVault = new Door();
+bankVault.isOpen = false;
 
 // Create 2 shoes
-var rubySlippers;
-var dressShoes;
+var rubySlippers = new Shoe();
+rubySlippers.size = 7;
+rubySlippers.color = "red";
+var dressShoes = new Shoe();
+dressShoes.size = 10;
+dressShoes.color = "black";
 
 // Create 2 houses
-var singleStory;
-var twoStory;
+var singleStory = new House();
+singleStory.stories = 1;
+var twoStory = new House();
+twoStory.stories = 2;
 
 // Create 2 lightbulbs
-var incandescent;
-var halogen;
+var incandescent = new Lightbulb();
+incandescent.isOn = true;
+var halogen = new Lightbulb();
+halogen.isOn = false;
 
 // Create 2 cookies of different flavors
-var chocolateChip;
-var gingerbread;
+var chocolateChip = new Cookie();
+chocolateChip.flavor = "chocolate";
+var gingerbread = new Cookie();
+gingerbread.flavor = "gingerbread";
 
 // Create 2 different meals
-var breakfast;
-var dinner;
+var breakfast = new Meal();
+breakfast.foods = ["cereal", "milk"];
+var dinner = new Meal();
+dinner.foods = ["fish", "vegetables"];
 
 
  /* Steps 81 to 90
