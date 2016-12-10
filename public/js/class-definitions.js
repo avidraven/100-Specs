@@ -391,18 +391,7 @@ function listLivingOrgClass(){
   }
   // console.log("<ul>" + listString + "</ul>");
   return "<ul>" + listString + "</ul>";
-
-//this doesn't work with the tests but console.logs correctly; guess the problem is we're not supposed to actually create any new elements in this file
-  // var htmlList = document.createElement("ul");
-  // for (var i = 0; i < livingOrganismClassification.length; i++) {
-  //   var listEntry = document.createElement("li");
-  //   listEntry.innerHTML = livingOrganismClassification[i];
-  //   htmlList.appendChild(listEntry);
-  // }
-  // console.log(htmlList);
-  // return htmlList;
 }
-
 
 /* Step 26
  *
@@ -476,24 +465,6 @@ Person.prototype.spendMoney = function(spendAmount){
 Person.prototype.earnMoney = function(earnAmount){
   this.money += earnAmount;
 };
-
-
-// class Person{
-//   constructor(name, money, age, gender){
-//     this.name = name;
-//     this.money = money;
-//     this.age = age;
-//     this.gender = gender;
-//   }
-
-//   spendMoney(amount){
-//     this.money = this.money - amount;
-//   }
-
-//   earnMoney(amount){
-//     this.money = this.money + amount;
-//   }
-// }
 
 /* Step 28
  *
@@ -1142,74 +1113,44 @@ class Meal{
 
 
 // Create 2 different species of animals
-var george = new Animal();
-george.species = "Monkey";
-george.gender = "male";
-var nemo = new Animal();
-nemo.species = "Fish";
-nemo.gender = "male";
+var george = new Animal("Monkey", "male");
+var nemo = new Animal("Fish", "male");
 
 // Create 2 different vehicles
-var civic = new Vehicle();
-civic.make = "Honda";
-civic.model = "Civic";
-var forte = new Vehicle();
-forte.make = "KIA";
-forte.model = "Forte";
+var civic = new Vehicle("Honda", "Civic");
+var forte = new Vehicle("KIA", "Forte");
 
 // Create 2 shapes with different numbers of sides
-var square = new Shape();
-square.sides = 4;
-var hexagon = new Shape();
-hexagon.sides = 6;
+var square = new Shape(4);
+var hexagon = new Shape(6);
 
 // Create 2 boxes
-var catBox = new Box();
-catBox.contents = new Animal();
-catBox.contents.species = "Cat";
-catBox.isOpen = true;
-var christmasPresent = new Box();
-christmasPresent.contents = "Surprise";
-christmasPresent.isOpen = false;
+var catBox = new Box(new Animal("Cat"), true);
+var christmasPresent = new Box("surprise", false);
 
 // Create 2 doors
-var automaticDoor = new Door();
-automaticDoor.isOpen = true;
-var bankVault = new Door();
-bankVault.isOpen = false;
+var automaticDoor = new Door(true);
+var bankVault = new Door(false);
 
 // Create 2 shoes
-var rubySlippers = new Shoe();
-rubySlippers.size = 7;
-rubySlippers.color = "red";
-var dressShoes = new Shoe();
-dressShoes.size = 10;
-dressShoes.color = "black";
+var rubySlippers = new Shoe(7, "red");
+var dressShoes = new Shoe(10, "black");
 
 // Create 2 houses
-var singleStory = new House();
-singleStory.stories = 1;
-var twoStory = new House();
-twoStory.stories = 2;
+var singleStory = new House(1);
+var twoStory = new House(2);
 
 // Create 2 lightbulbs
-var incandescent = new Lightbulb();
-incandescent.isOn = true;
-var halogen = new Lightbulb();
-halogen.isOn = false;
+var incandescent = new Lightbulb(true);
+var halogen = new Lightbulb(false);
 
 // Create 2 cookies of different flavors
-var chocolateChip = new Cookie();
-chocolateChip.flavor = "chocolate";
-var gingerbread = new Cookie();
-gingerbread.flavor = "gingerbread";
+var chocolateChip = new Cookie("chocolate");
+var gingerbread = new Cookie("gingerbread");
 
 // Create 2 different meals
-var breakfast = new Meal();
-breakfast.foods = ["cereal", "milk"];
-var dinner = new Meal();
-dinner.foods = ["fish", "vegetables"];
-
+var breakfast = new Meal(["cereal", "milk"]);
+var dinner = new Meal(["fish", "vegetables"]);
 
  /* Steps 81 to 90
  *
