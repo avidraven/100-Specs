@@ -335,7 +335,7 @@ function installLinux(type){
  */
 function drink(beerName){
   if (beers.hasOwnProperty(beerName)){
-    var beerDescription = beers[beerName];  //dot notation doesn't work
+    var beerDescription = beers[beerName];
     var beerString = "";
     if (typeof beerDescription === "string"){
       beerString = "This " + beerName + " is " + beerDescription + ".";
@@ -389,7 +389,6 @@ function listLivingOrgClass(){
   for (var i = 0; i < livingOrganismClassification.length; i++) {
     listString += "<li>" + livingOrganismClassification[i] + "</li>";
   }
-  // console.log("<ul>" + listString + "</ul>");
   return "<ul>" + listString + "</ul>";
 }
 
@@ -796,16 +795,6 @@ Scientist.prototype.addDiscovery = function(discoveryToAdd){
  *   rob
  *
  */
-// function BankAccount(balance, owner){
-//   this.balance = balance;
-//   this.owner = owner;
-// }
-
-// BankAccount.prototype.withdraw = function(withdrawAmount){
-//   if (this.balance >= withdrawAmount){
-//     this.balance -= withdrawAmount;
-//   }
-// };
 
 /* Step 37
  *
