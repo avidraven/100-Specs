@@ -1400,10 +1400,6 @@ var polygon = new Shape(54321).getType();
  * and assign the values to each variable below.
  *
  */
-// var closedBox = new Box();
-// closedBox.isOpen = false;
-// var openedBox = new Box();
-// openedBox.isOpen = true;
 var openAClosedBox = new Box("platypuses",false).openBox();
 var closeAnOpenBox = new Box("platypuses",true).openBox();
 
